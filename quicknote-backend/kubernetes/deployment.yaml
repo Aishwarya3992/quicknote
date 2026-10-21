@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: quicknote-backend
+
+spec:
+  replicas: 3
+
+
+  selector:
+    matchLabels:
+      app: quicknote-backend
+
+  template:
+    metadata:
+      labels:
+        app: quicknote-backend
+
+    spec:
+      containers:
+        - name: quicknote-backend
+          image: quicknote-backend:1.3
+          ports:
+            - containerPort: 8080
